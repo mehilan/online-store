@@ -36,6 +36,11 @@ class Address extends Model
         return $this->belongsTo(Location::class, 'location_id');
     }
 
+    // public function sharedBilling()
+    // {
+    //     return $this->hasMany(User::class, 'billing_id');
+    // }
+
     /***
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */

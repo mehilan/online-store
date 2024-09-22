@@ -31,6 +31,8 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'billing_id',
+        'shipping_id',
     ];
 
     /**
@@ -42,6 +44,17 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    public function defaultShippingAddress()
+    {
+        return $this->belongsTo(Address::class, 'shipping_id');
+    }
+
+    public function defaultBillingAddress()
+    {
+        return $this->belongsTo(Address::class, 'billing_id');
+    }
 
     /**
      * Get the attributes that should be cast.

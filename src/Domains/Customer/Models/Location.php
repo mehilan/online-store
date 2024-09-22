@@ -36,7 +36,7 @@ class Location extends Model
 
      protected static function newFactory()
     {
-            return new LocationFactory();
+        return new LocationFactory();
     }
 
 }

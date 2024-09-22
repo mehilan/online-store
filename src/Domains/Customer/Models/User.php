@@ -6,6 +6,7 @@ namespace Domains\Customer\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Database\Factories\UserFactory;
 use Domains\Customer\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,6 +21,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $model = User::class;
+
+
     protected $fillable = [
         'uuid',
         'first_name',
@@ -54,5 +59,13 @@ class User extends Authenticatable
     public function addresses()
     {
         return $this->hasMany(Address::class, 'user_id');
+    }
+
+    /***
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return UserFactory::new();
     }
 }

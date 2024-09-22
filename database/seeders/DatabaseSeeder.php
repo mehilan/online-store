@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Domains\Customer\Models\Address;
 use Domains\Customer\Models\Location;
 use Domains\Customer\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Location::factory(50)->create();
+        Location::factory(50)->create();
+        Address::factory(50)->create();
     }
 }

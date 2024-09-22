@@ -24,6 +24,12 @@ class Location extends Model
         'postcode'
     ];
 
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class, 'location_id');
+    }
+
     /***
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
@@ -32,4 +38,5 @@ class Location extends Model
     {
             return new LocationFactory();
     }
+
 }

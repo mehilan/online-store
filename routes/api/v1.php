@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Users\IndexController as UsersIndexController;
 use App\Http\Controllers\Api\V1\Products\IndexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::group([
     'prefix' => 'v1'
 ], function(){
     Route::prefix('products')->get('/products', [IndexController::class])->name('show');
+    Route::get('/test', [IndexController::class, 'test']);
 });
 
 // Route::prefix('v1')->group(function(){

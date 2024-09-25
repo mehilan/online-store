@@ -30,9 +30,7 @@ class Location extends Model
         return $this->hasMany(Address::class, 'location_id');
     }
 
-    /***
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
+  
 
      protected static function newFactory()
     {

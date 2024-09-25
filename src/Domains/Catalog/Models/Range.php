@@ -3,12 +3,14 @@
 namespace Domains\Catalog\Models;
 
 use Database\Factories\RangeFactory;
+use Domains\Shared\Models\Concerns\HasKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Range extends Model
 {
     use HasFactory;
+    use HasKey;
 
         /**
      * Indicates if the model should be timestamped.
@@ -36,8 +38,8 @@ class Range extends Model
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
 
-    protected function newFactory()
+    protected static function newFactory()
     {
-        return new RangeFactory();
+        return RangeFactory::new();
     }
 }

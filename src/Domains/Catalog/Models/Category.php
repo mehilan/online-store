@@ -13,7 +13,6 @@ class Category extends Model
     use HasKey;
     use HasFactory;
 
-
         /**
      * Indicates if the model should be timestamped.
      *
@@ -40,8 +39,8 @@ class Category extends Model
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
 
-    protected function newFactory()
+    protected static function newFactory()
     {
-        return new CategoryFactory();
+        return CategoryFactory::new();
     }
 }

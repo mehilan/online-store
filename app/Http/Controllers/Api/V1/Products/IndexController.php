@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Products;
 
 use App\Http\Controllers\Controller;
+use Domains\Catalog\Models\Category;
 use Domains\Shared\Models\Concerns\KeyFactory;
 use Illuminate\Http\Request;
 

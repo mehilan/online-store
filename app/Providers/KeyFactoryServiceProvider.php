@@ -19,6 +19,10 @@ class KeyFactoryServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->publishes([
+            __DIR__.'/../../config/Key-factory.php' => config_path('Key-factory.php'),
+        ], 'config');
+
         $this->registerMacros();
     }
 

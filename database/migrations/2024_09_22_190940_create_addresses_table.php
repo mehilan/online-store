@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->boolean('billing')->default(false);
-            $table->foreignId('user_id')->index()->references('id')->on('users');
-            $table->foreignId('location_id')->index()->references('id')->on('locations');
+            $table->foreignId('user_id')->nullable()->index()->references('id')->on('users')->nullOnDelete();
+            $table->foreignId('location_id')->nullable()->index()->references('id')->on('locations')->nullOnDelete();
 
 
             $table->timestamps();

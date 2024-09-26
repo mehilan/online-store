@@ -30,8 +30,8 @@ return new class extends Migration
 
 
             // relationships
-            $table->foreignId('category_id')->index()->references('id')->on('categories');
-            $table->foreignId('range_id')->nullable()->index()->references('id')->on('ranges');
+            $table->foreignId('category_id')->nullable()->index()->references('id')->on('categories')->nullOnDelete();
+            $table->foreignId('range_id')->nullable()->index()->references('id')->on('ranges')->nullOnDelete();
             $table->timestamps();
         });
     }

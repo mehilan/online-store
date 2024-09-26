@@ -3,6 +3,7 @@
 namespace Domains\Catalog\Models;
 
 use Database\Factories\ProductFactory;
+use Domains\Catalog\Models\Builders\ProductBuilder;
 use Domains\Shared\Models\Concerns\HasKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -29,9 +30,19 @@ class Product extends Model
         'active' => 'boolean'
     ];
 
-    public function Categories()
+    public function Category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function range()
+    {
+        return $this->belongsTo(Range::class, 'range_id');
+    }
+
+    public function newEloquentBuilder($query)
+    {
+        return new ProductBuilder($query);
     }
 
     protected static function newFactory()

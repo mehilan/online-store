@@ -3,6 +3,7 @@
 namespace Domains\Catalog\Models;
 
 use Database\Factories\CategoryFactory;
+use Domains\Catalog\Models\Builders\CategoryBuilder;
 use Domains\Shared\Models\Concerns\HasKey;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,15 @@ class Category extends Model
         ];
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
+
+    public function newEloquentBuilder($query)
+    {
+        return new CategoryBuilder($query);
+    }
 
     /***
      * @return \Illuminate\Database\Eloquent\Factories\Factory

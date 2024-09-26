@@ -2,6 +2,8 @@
 
 namespace  Domains\Shared\Models\Builders\Shared;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
+
 trait HasActiveScope
 {
     public function active() : self

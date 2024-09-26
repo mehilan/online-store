@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Domains\Catalog\Models\Category;
 use Domains\Catalog\Models\Product;
 use Domains\Catalog\Models\Range;
+use Domains\Catalog\Models\Variant;
 use Domains\Customer\Models\Address;
 use Domains\Customer\Models\Location;
 use Domains\Customer\Models\User;
@@ -25,11 +26,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Location::factory(10)->create();
-        Address::factory(10)->create();
-        User::factory(10)->create();
-        Category::factory(10)->create();
-        Range::factory(10)->create();
-        Product::factory(10)->create();
+        // Location::factory(10)->create();
+        // Address::factory(10)->create();
+        // User::factory(10)->create();
+        // Category::factory(10)->create();
+        // Range::factory(10)->create();
+        // Product::factory(10)->create();
+        Variant::factory(10)->create();
     }
 }

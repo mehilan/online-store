@@ -30,7 +30,7 @@ class Product extends Model
         'active' => 'boolean'
     ];
 
-    public function Category()
+    public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
@@ -38,6 +38,11 @@ class Product extends Model
     public function range()
     {
         return $this->belongsTo(Range::class, 'range_id');
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(Variant::class, 'product_id');
     }
 
     public function newEloquentBuilder($query)

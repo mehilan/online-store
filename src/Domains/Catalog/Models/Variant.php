@@ -33,6 +33,11 @@ class Variant extends Model
         'shippable' => 'boolean'
     ];
 
+    public function products()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+
     public function newEloquentBuilder($query)
     {
         return new VariantBuilder($query);

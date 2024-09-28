@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Products;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\V1\ProductResource;
 use Domains\Catalog\Models\Category;
 use Domains\Catalog\Models\Product;
 use Domains\Shared\Models\Concerns\KeyFactory;
@@ -15,19 +16,19 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return [];
+        $product = Product::query()->active()->paginate();
+
+        if($request->include)
+        {
+            $includes = $request->include;
+            // dd($includes);
+            $product->load($includes);
+            // return $product; //update the some code manually
+        }
+
+        return response()->json([
+            'data' => ProductResource::collection($product)
+        ],200);
     }
 
-    public function test()
-    {
-        $key = KeyFactory::generate(
-            prefix: 'key', // what you want to prefix your keys with.
-            length: 10, // optional - the default of 20 is set in the config.
-        );
-
-        // dd($key);
-
-       $test = Product::query()->inactive()->first();
-       dd($test);
-    }
 }

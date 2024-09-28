@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\Users\IndexController as UsersIndexController;
+
 use App\Http\Controllers\Api\V1\Products\IndexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -11,18 +11,10 @@ Route::get('/user', function (Request $request) {
 
 
 Route::group([
-    'prefix' => 'v1'
+    'prefix' => 'v1/products'
 ], function(){
-    Route::prefix('products')->get('/products', [IndexController::class])->name('show');
-    Route::get('/test', [IndexController::class, 'test']);
+    Route::get('/', [IndexController::class, '__invoke'])->name('api:v1:products:index');
+    Route::get('{key}', App\Http\Controllers\Api\V1\Products\ShowController::class)->name('api:v1:products:show');
 });
 
-// Route::prefix('v1')->group(function(){
 
-
-//     Route::get('/example', function (Request $request) {
-//         return response()->json([
-//             'data' => 'array,'
-//         ]);
-//     });
-// });
